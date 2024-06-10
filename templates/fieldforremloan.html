@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% block title %} Home{% endblock title %}
+{% block body %}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <div class="center">
+    <h1 align="center">REMOVE A LOAN</h1>
+    <div class="center">
+      <form action="/rembutsubmit" method="post">
+        <h3 align="center">Select loan to remove: </h3>
+        <select name="remloan" id="remloan" style="width: 500px; height: 50px;">
+           {% for i in li %}
+           <option value="{{i}}">{{i}}</option>
+           {% endfor %}
+        </select>
+        <br>
+        <br>
+
+        <div>
+          <button type="submit" id="remloanbut">Remove</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+<style>
+  *{
+    font-family:'Nunito', sans-serif;
+}
+body{
+    background-image: url("/static/img/3.jpg");
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.center{
+    background-color:white;
+    padding:25px 40px 30px;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+}
+button {
+  padding: 19px 39px 18px 39px;;
+  background-color: #2691d9;
+  font-size: 18px;
+  color:white;
+  text-align: center;
+  font-style: normal;
+  border-radius: 20px;
+  width: 30%;
+  border: 1px solid #2691d9;
+  border-width: 1px 1px 3px;
+  box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+  margin-bottom: 10px;
+}
+select {
+  font-size:15px;
+  padding: 6px;
+  max-width: 400px;
+  height: 40px;
+  border-radius: 2px;
+}
+option{
+  font-size:15px;
+}
+</style>
+</html>
+
+
+{% endblock body %}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='cssfile/logins1.css') }}">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+    <div class="container-fluid" style="background-color: #2691d9;">
+        <a class="navbar-brand" style="color: white; font-family: sans-serif; font-size: 35px; padding-top: 20px; " href="/">BANK NAME</a>
+    </div>
+  </nav>
+  <div class="center"> 
+    <h1>Login</h1>
+    <form name="data" method="post"  action="/dashboard">
+      <div class="txt_field">
+        <input type="text" id="user" name="user" required>
+        <span></span>
+        <label>Username</label>
+      </div>
+      <div class="txt_field">
+        <input type="password" id="passw" name="passw" required>
+        <span></span>
+        <label>Password</label>
+      </div>
+      <input type="submit" value="Login">
+      <div class="signup_link">
+        Not a member? <a href="/newuser">Signup</a>
+      </div>
+    </form>
+</body>
+<style>
+  html{
+    font-family: "Poppins", sans-serif;
+  }
+  .navbar-brand{
+    font-size: 35px;
+  }
+  .navbar{
+    height: 0px;
+    border: 0px;
+  }
+  .container-fluid{
+    font-size: 35px;
+    height: 60px;
+  }
+
+</style>
+
+</html>

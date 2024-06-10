@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+{% block title %} Home{% endblock title %}
+{% block body %}
+
+<body>
+
+<!doctype html>
+<html lang="en">
+<head>
+   
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Bootstrap CSS -->
+    <link href="{{ url_for('static',filename = 'css/bootstrap.min.css')  }}" rel="stylesheet">
+    <link href="{{ url_for('static',filename = 'css/all.css')  }}" rel="stylesheet">
+    <title>Performance Metric</title>
+    
+</head>
+<body>
+    
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+  
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/createe">A-LAP </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/create">TRAIN </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="/predict">PREDICT</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="/viz">VISUALIZE</a>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link" href="#" id="pe">PERFORMANCE METRICS <span class="sr-only">(current)</span></a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="/guide">USER GUIDE</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+    <br><br>
+    <div class="container">
+      <div class="card">
+        <h4><span class="outputtext">The Loan Name is : </span>  {{name_of_model}}</h4>
+        <br>
+        <h4><span class="outputtext">The accuracy on Training data : </span> {{result}}</h4>
+        <br>
+        <h4><span class="outputtext">The accuracy on Testing data : </span>  {{accuracytestdata}}</h4>
+        <br>
+
+        <div class="overflow-auto">
+
+        {{frame | safe}}
+        </div>
+        <h4><span class="outputtext">The Visualization for ROC-AUC curve : </span></h4>
+        <br>
+        <div class="container" style="max-height: 900px; max-width: 900px;">
+            <img class="img-fluid"   src="{{ url_for('static' , filename = 'plots/%s.png' %getplot1) }}" alt="not found">
+
+        </div>
+        <br>
+        <br>
+        <h4><span class="outputtext">The accuracy score for the predicted output and and the original output: </span> {{asbetweentestandpred}}</h4>
+        <br>
+        <br>
+        <h4><span class="outputtext">The Precision value is : {{precision}} </span></h4>
+        <br>
+        <h4><span class="outputtext">The Recall value is : {{recall}} </span></h4>
+        <br>
+        <h4><span class="outputtext">The F-Score is : {{score}} </span></h4>
+        <br>
+
+
+    </div>
+    
+    </div>
+    </div>
+
+
+    <!-- change later-->
+    <script src="{{ url_for('static',filename = 'js/bootstrap.bundle.min.js')  }}" ></script>
+    
+</body>
+
+<style>
+    .container{
+        max-width: 1300px;
+        margin-top: 20px;
+    }
+    .card{
+        max-width: 1200px;
+        text-align: left;
+        padding:40px ;
+        margin-left: auto;
+        background-color: #d3e6f7;
+    }
+    .btn-primary{
+        font-size: 17px;
+        margin-left: 500px;
+        padding: 10px;
+    }
+    h4{
+        color: black;
+    }
+    .collapse{
+  padding-right: 15px;
+  padding-left: 15px;
+}
+    .nav-item{
+      padding-left:30px ;
+    }
+    .co{
+        color: black;
+    }
+    .navbar{
+      font-size: 18px;
+      background-color: #d3e6f7;
+      padding: 0px;
+    }
+    #pe{
+      font-weight: bold;
+      font-size: 20px;
+      color: black ;
+    }
+</style>
+
+</html>
+
+</body>
+{% endblock body %}

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link href="{{ url_for('static',filename = 'css/bootstrap.min.css')  }}" rel="stylesheet">
+    <link href="{{ url_for('static',filename = 'css/all.css')  }}" rel="stylesheet">
+    <title>ML Trainer</title>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="#" style="margin-left: 25px;">
+            Output of Data PreProcessing...
+        </a>
+    </nav>
+
+    <div class="container">
+        <div class="output">
+            <br><br>
+            <center>
+                <h1>&#127881;&#127882; Hurrey Your Dataset is Now Ready... &#127882;&#127881;</h1>
+            </center>
+            <br><br>
+            <br>
+            <h4><span class="outputtext">The Top 5 Rows Of Your Dataset </span> </h4>
+            <br>
+            <div class="python-code">
+                <h6 style="text-decoration: underline; font-weight: bold;">The head() function is used to get the first
+                    n rows.</h6>
+                <li>Example :</li>
+                <p style="padding-left: 80px;">dataframe.head(5)</p>
+            </div>
+            <br>
+            Output &#128071;
+            <br>
+            <br>
+            {{table | safe}}
+
+            <br>
+
+            <h4><span class="outputtext">Dataset Description </span> </h4>
+            <br>
+            {{dataset_describe | safe}}
+
+            <br>
+            <h4><span class="outputtext">Dataset Shape : {{data_shape}} </span> </h4>
+            <br>
+            
+
+            <h4><span class="outputtext">You can Download your new Dataset here : 
+                <a href="{{url_for('download_file')}}"> <button type="button" class="btn btn-outline-primary">Download Dataset &#9655;</button></a>
+            </span>
+            </h4>
+            
+
+        </div>
+    </div>
+    <br><br><br>
+
+
+    <!-- footer -->
+    <!-- <div class="fixed-bottom ">
+        <div class="bg-secondary " style="min-height: 40px;">
+    
+            <marquee style="color:#fff; margin-top: 7px;">
+                <h9>Copyright@ Pritesh Kumar</h9>
+            </marquee>
+        </div>
+    </div> -->
+
+
+    
+    <!-- change later-->
+    <script src="{{ url_for('static',filename = 'js/bootstrap.bundle.min.js')  }}"></script>
+
+</body>
+
+</html>

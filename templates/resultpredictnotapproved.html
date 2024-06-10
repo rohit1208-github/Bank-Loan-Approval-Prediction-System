@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block title %} Home{% endblock title %}
+{% block body %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>result</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <h1 align="center" style="padding: 30px;">
+            LOAN PREDICTION
+        </h1>
+        <h3 align="center" style="font-size:20px">We are Sorry!!! Your not Eligible for the Loan Amount You have asked.
+            But We Can Suggest You the Loan Amount you are Eligible.
+        </h3>
+        <br>
+        <br>
+        <div align="center">
+            <form action="/notloop" method="post">
+                <button align="center" type="submit" id="loopbtn">Generate Suggested Loan Amount</button>
+            </form>
+        </div>
+    </div>    
+</body>
+<style type="text/css">
+    *{
+        font-family:'Nunito', sans-serif;
+    }
+    body{
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+    button {
+        padding: 19px 39px 18px 39px;;
+        background-color: #2691d9;
+        font-size: 18px;
+        color:white;
+        text-align: center;
+        font-style: normal;
+        border-radius: 20px;
+        width: 30%;
+        border: 1px solid #2691d9;
+        border-width: 1px 1px 3px;
+        box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+        margin-bottom: 10px;
+}
+</style>
+</html>
+
+{% endblock body %}

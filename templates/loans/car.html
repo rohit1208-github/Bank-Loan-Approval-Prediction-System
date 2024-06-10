@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>form</title>
+    <link rel="stylesheet" type="text/css" href= {{ url_for("static",filename="form.css") }} >
+</head>
+<body style="margin: 0px;">
+
+<div class="topnav" id="myTopnav" style="background-color: #2691d9;">
+        <!-- <div class="navbar-header">
+            <a class="navbar-brand " style="font-size: xx-large;" href="#">Finance Planner</a>
+        </div> -->
+        <a href="/createe" style="text-decoration: none;">
+            <h2 style="padding-top: 10px; padding-left: 20px; color: white;background-color: #2691d9; text-decoration: none; margin: 0px;height: 60px; font-size: 35px;">A-LAP</h2>
+        </a>
+        <div class="menu">
+          
+          
+<!--        <a href="/create" class="btn" >Load Data</a>
+            <a href="/projects" class="btn" >Projects</a>-->
+        <a href="javascript:void(0);" class="icon" onclick="header()">
+            <i class="fa fa-bars"></i>
+        </a>
+        
+    </div>
+    </div>
+
+    <div class="center">
+        <h1 style="padding-top: 30px ;">LOAN PREDICTION</h1>
+        <div class="container">
+            <form action="/predictloan" method="post">
+                <legend>
+                    Enter The Details
+                </legend>
+                {% set c = namespace(value=0) %}
+                {% for i in feature %}
+                {% if i in resfeature %}
+                <div class="form-check form-switch">
+                    {{i}} <input class="form-check-input" name="{{i}}" type="text">
+                </div>
+                {% elif i in reslabelencode %}
+                <div class="form-check form-switch">
+                    <!--<input class="form-check-input" value="{{i}}" name="features" type="text">-->
+                    {{i}}<select name="{{i}}" id="{{i}}" style="width: 500px; height: 40px;">
+                            {% for n, k in diccsv[c.value].values()|zip(diccsv[c.value].keys()) %}
+                            <option value="{{n}}">{{k}}</option>
+                            {% endfor %}
+                         </select>
+                {% set c.value = c.value + 1 %}
+                {% endif %}
+                {% endfor %}
+                </div>
+            
+            
+                <button>PREDICT</button>
+            
+            </form>
+            {{ prediction_text }}
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+{% block title %} Home{% endblock title %}
+{% block body %}
+
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+  
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#" id="alap"> ALAP </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/create">TRAIN</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="#" style="font-weight: bold;font-size: 20px; color: black;">PREDICT</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="/viz">VISUALIZE</a>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link" href="/permet">PERFORMANCE METRICS</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="/guide">USER GUIDE</a>
+      </li>
+    </ul>
+    
+  </div>
+</nav>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>form</title>
+</head>
+<body>
+    <div class="center">
+        <h1 align="center">
+            Choose The Type Of Loan
+        </h1>
+        <form align="center" action="/formlist" method = "post" style="margin-top: 30px ;">
+            {% for i in li %}
+            <div class="form-check form-switch">
+                <button type="submit" value="{{i}}" name="genform">{{i}}</button>
+            {% endfor %}
+        </form>
+        
+        <form align="center" action = "/rembut" method = "post" style="min-height: auto; margin-top: 30px;">
+            <button type="submit" name="rembut" style="float: right; margin-right: 140px; background-color: black;">REMOVE</button>
+        </form>
+        
+        <form align="center" action = "/addbut" method = "post">
+            <button type="submit" name="addbut" style="background-color: black;">ADD</button>
+        </form>
+        </div>
+    
+</body>
+<style type="text/css">
+    *{
+        font-family:'Nunito', sans-serif;
+    }
+    body{
+        background-image: url("/static/img/3.jpg");
+        height: 500px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+    .center{
+        padding:25px 40px 30px;
+        text-align: center;
+        top: 50%;
+        left: 50%;
+    }
+    button {
+        padding: 19px 39px 18px 39px;;
+        background-color: #2691d9;
+        font-size: 18px;
+        color:white;
+        text-align: center;
+        font-style: normal;
+        border-radius: 20px;
+        width: 30%;
+        border: 1px solid ;
+        border-width: 1px 1px 3px;
+        box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+        margin-bottom: 10px;
+}
+.form-switch{
+  padding-left: 0px;
+}
+.navbar{
+      font-size: 18px;
+      background-color: #d3e6f7;
+      padding: 0px;
+    }
+    .nav-item{
+      padding-left:30px ;
+    }
+</style>
+</html>
+</body>
+
+{% endblock body %}

@@ -1,0 +1,160 @@
+{% extends 'base.html' %}
+{% block title %} Home{% endblock title %}
+{% block body %}
+
+<body>
+
+<!doctype html>
+<html lang="en">
+<head>
+   
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Bootstrap CSS -->
+    <link href="{{ url_for('static',filename = 'css/bootstrap.min.css')  }}" rel="stylesheet">
+    <link href="{{ url_for('static',filename = 'css/all.css')  }}" rel="stylesheet">
+    <title>Performance Metric</title>
+    
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+  
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/createe">A-LAP </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/create" id="tr">TRAIN</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="/predict">PREDICT</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="/viz">VISUALIZE <span class="sr-only">(current)</span></a>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link" href="/permet">PERFORMANCE METRICS</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="/guide">USER GUIDE</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+    <div class="container" >
+    <div class="output" style="background-color: #004c8f; color: white ;margin-left: 30px; margin-right: 30px;">
+        <br><br>
+        <h1 style="text-align: center;"> Model Training Done</h1>
+        <br><br>
+    </div>    
+    
+
+    <br><br>
+    <div>
+        <div class="card">
+        <h4><span class="outputtext">Loan Name : </span>  {{name_of_model}}</h4>
+        <br>
+        <h4><span class="outputtext">The accuracy on Training data : </span> {{result}}</h4>
+        <br>
+        <h4><span class="outputtext">The accuracy on Testing data : </span>  {{accuracytestdata}}</h4>
+        <br>
+
+        <div class="overflow-auto">
+            
+        {{frame | safe}}
+        </div>
+        <h4><span class="outputtext">The Visualization for Performance and Depth of tree is displayed below : </span></h4>
+        <br>
+        <div class="container" style="max-height: 900px; max-width: 900px;">
+            <img class="img-fluid"   src="{{ url_for('static' , filename = 'plots/%s.png' %getplot1) }}" alt="not found">
+       
+        </div>
+        
+        <h4><span class="outputtext">The accuracy score for the predicted output and and the original output: </span> {{asbetweentestandpred}}</h4>
+        <br>
+        
+        <h4><span class="outputtext">The Confusion Matrix : </span></h4>
+        <br>
+        {% for i in cm %}
+        
+        <h3>{{i}}</h3>
+
+
+        {% endfor %}
+        <br>
+        <h4><span class="outputtext">The Precision value is : {{precision}} </span></h4>
+        <br>
+        <h4><span class="outputtext">The Recall value is : {{recall}} </span></h4>
+        <br>
+        <h4><span class="outputtext">The F-Score is : {{score}} </span></h4>
+        <br>
+        
+  
+    
+
+    <form action="/genform" method="post">
+        <button type="submit" id="btnGenForm" class="btn">Generate Form</button>
+    </form>
+    </div>
+    
+    </div>
+    </div>
+
+
+    <!-- change later-->
+    <script src="{{ url_for('static',filename = 'js/bootstrap.bundle.min.js')  }}" ></script>
+    
+</body>
+
+<style>
+    .container{
+        max-width: 1300px;
+        margin-top: 20px;
+    }
+    .card{
+        max-width: 1200px;
+        text-align: left;
+        padding:40px ;
+        margin: auto;
+        background-color: #d3e6f7;
+    }
+    .btn{
+      background-color: #004c8f;
+      color: white;
+      border-radius: 20px;
+      font-size: 20px;
+      font-weight: bold;
+      padding-left: 30px;
+      padding-right: 30px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      margin: auto;
+    }
+    .navbar{
+      font-size: 18px;
+      background-color: #d3e6f7;
+      padding: 0px;
+    }
+    .nav-item{
+      padding-left:30px ;
+    }
+    #tr{
+      font-weight: bold;
+      font-size: 20px;
+      color: black;
+    }
+</style>
+
+</html>
+
+</body>
+{% endblock body %}

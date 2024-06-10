@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+{% block title %} Home{% endblock title %}
+{% block body %}
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+  
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/createe">ALAP </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/create">TRAIN</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="/predict">PREDICT</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="/viz">VISUALIZE <span class="sr-only">(current)</span></a>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link" href="#" id="pe">PERFORMANCE METRICS</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="/guide">USER GUIDE</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+    <div class="container">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>form</title>
+</head>
+<body>
+    <h1 style="text-align: center; padding: 20px; ">Select the Loan Type </h1>
+    <div class="card">
+   <form action="/permetlist" method = "post">
+    {% for i in li %}
+	<a class="form-check form-switch">
+        <button type="submit" value="{{i}}" name="permet" class="btn">{{i}}</button>
+    {% endfor %}
+    </a>
+   </form>
+   </div>
+
+</body>
+
+
+<style>
+    html{
+    font-family: "Poppins", sans-serif;
+  }
+    .navbar{
+      font-size: 18px;
+      background-color: #d3e6f7;
+      padding: 0px;
+    }
+    .nav-item{
+      padding-left:30px ;
+    }
+.form-check{
+    padding-left: 0px ;
+    display: contents;
+    
+}
+.btn{
+      background-color: #2691d9;
+      color: white;
+      border-radius: 20px;
+      font-size: 20px;
+      font-weight: bold;
+      padding-left: 30px;
+      padding-right: 30px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      margin: auto;
+    }
+    .container{
+    margin-left: 20px;
+    margin-right: 50px;
+    max-width: 1496px;
+    margin-top: 30px;
+    height: 250px;
+  }
+  form{
+      margin-top: 20px;
+  }
+  .card{
+      margin-left: 200px ;
+      margin-right: 200px;
+      background-color: #e9f3fa;
+      margin-bottom: 0px;
+      margin-top: 20px;
+      position: center;
+      height: 100px;
+      max-width: 650px;
+      margin: auto;
+    }
+    #pe{
+      font-weight: bold;
+      font-size: 20px;
+      color: #000;
+    }
+</style>
+</html>
+</div>
+
+</body>
+
+
+{% endblock body %}

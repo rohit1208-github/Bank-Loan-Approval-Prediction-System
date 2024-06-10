@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% block title %} Home{% endblock title %}
+{% block body %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <div class="container">
+    <h1 align="center">
+      Field Selection
+    </h1>
+    <form action="/entersug" method="post">
+      <h3 align="center">Select the column which corresponds to loan amount</h3>
+      <div align="center">
+        <select align="center" name="loan amount" id="loan amount" style="width: 400px; height: 50px;">
+          {% for i in col %}
+          <option value="{{i}}">{{i}}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div align="center">
+        <button type="submit" id="selloanfield">generate suggested loan amount</button>
+      </div>
+    </form>
+    {{oldamount}}
+  </div>
+</body>
+<style>
+  *{
+    font-family:'Nunito', sans-serif;
+}
+body{
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+position: relative;
+}
+.container{max-width: 1300px;
+  margin-top: 20px;
+}
+button {
+  padding: 19px 39px 18px 39px;;
+  background-color: #2691D9;
+  font-size: 18px;
+  color:white;
+  text-align: center;
+  font-style: normal;
+  border-radius: 20px;
+  width: 30%;
+  border: 1px solid #2691d9;
+  border-width: 1px 1px 3px;
+  box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+  margin-bottom: 10px;
+}
+select {
+  background: rgba(255,255,255,0.1);
+  border: none;
+  font-size: 16px;
+  height: auto;
+  margin: 0;
+  outline: 0;
+  padding: 15px;
+  width: 100%;
+  background-color: white;
+  color: #4d5256;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+  margin-bottom: 30px;
+}
+</style>
+</html>
+
+{% endblock body %}

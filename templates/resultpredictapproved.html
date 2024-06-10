@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %} Home{% endblock title %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>result</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <h1 align="center">
+            LOAN PREDICTION
+        </h1>
+        <br>
+        <br>
+        <div>
+            <!--{{ pred }}-->
+            <h3 align="center" style="font-size:20px">Congratulations! Your Loan Application has been Approved!</h3>
+        </div>
+    </div>
+</body>
+<style type="text/css">
+    *{
+        font-family:'Nunito', sans-serif;
+    }
+body{
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.container{
+    background-color:white;
+    padding:25px 40px 30px;
+    border-radius: 10px;
+}
+</style>
+</html>
+
+{% endblock body %}

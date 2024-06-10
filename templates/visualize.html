@@ -1,0 +1,160 @@
+{% extends 'base.html' %}
+{% block title %} Home{% endblock title %}
+{% block body %}
+
+<body>
+  <div class="container">
+
+<!doctype html>
+    <html lang="en">
+    <head>
+        <title>Viusualize</title>
+        <meta charset="UTF-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+        <link rel="stylesheet" type="text/css" href= {{ url_for("static",filename="reset.css") }} >
+        <link rel="stylesheet" type="text/css" href= {{ url_for("static",filename="gfilter.css") }} >
+        <link rel="shortcut icon" href="../static/favicon.ico" />
+
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/humane-js/3.2.2/themes/flatty.css" />
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/humane-js/3.2.2/humane.js"></script>
+        <script>
+            humane.timeout = 3500;
+            humane.error = humane.spawn({ addnCls: 'humane-flatty-error'});
+            window.onerror = function(msg, url, linenumber) {
+                humane.error("An error: " + msg);
+
+                return false;
+            };
+        </script>
+
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+            ga('create', 'UA-4533496-20', 'auto');
+            ga('send', 'pageview');
+        </script>
+    </head>
+
+    <body>
+
+      <h1 class="name">Visualization</h1>
+        <div class="card">
+            <div id="tutorialsInHeader">
+                <span class="logo" id="fileName"></span>
+                {% for i in li %}
+                 <a href="?dl=./static/datasets/{{ i }}.csv"><button>{{ i }}</button></a>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div id="dropzone">
+            <div id="textnode">Drop anywhere!</div>
+        </div>
+
+        <div id="statusBox">
+        </div>
+
+
+        <div id="vizContainer"></div>
+
+
+
+
+
+        <script src= {{ url_for("static",filename="d3.js") }} ></script>
+        <script src= {{ url_for("static",filename="crossfilter.js") }} ></script>
+        <script src= {{ url_for("static",filename="dc.js") }} ></script>
+        <script src= {{ url_for("static",filename="dnd.js") }} ></script>
+        <script src= {{ url_for("static",filename="vis.js") }} ></script>
+        <script type="text/javascript" src="https://cdn.plot.ly/plotly-1.10.0.min.js"></script>
+        <script src= {{ url_for("static",filename="plotter.js") }} ></script>
+        <script src= {{ url_for("static",filename="main.js") }} ></script>
+
+
+
+
+
+    </body>
+
+    <style>
+    .navbar{
+    height: 40px;
+    margin-top: 20px;
+    padding-bottom: 50px;
+  }
+    .navbar-brand{
+    font-size: 35px;
+    }
+    .container-fluid{
+        height: 60px;
+    }
+    footer {
+     background: #595a5a;
+      color: white;
+      margin:10px;
+    }
+    footer a {
+      color: white;
+      font-size: 14px;
+      transition-duration: 0.2s;
+    }
+    footer a:hover {
+      color: #FA944B;
+      text-decoration: none;
+    }
+    .copy {
+      font-size: 12px;
+      padding: 10px;
+      border-top: 1px solid white;
+    }
+    .footer-middle {
+      padding-top: 2em;
+      color: white;
+    }
+    h1{
+      font-size: 28px;
+      font-family: sans-serif;
+      padding-bottom: 20px;
+      padding-left: 10px;
+
+    }
+
+    .card{
+      margin-left: 600px ;
+      margin-right: 400px;
+      background-color: #e9f3fa;
+      margin-bottom: 40px;
+      margin-top: 20px;
+      position: center;
+    }
+    #gfilterDropFiles{
+      position: center;
+    }
+    .btn{
+    margin-right: 20px;
+  }
+  .container{
+    margin-left: 20px;
+    margin-right: 50px;
+    max-width: 1496px;
+    margin-top: 30px;
+  }
+  .name{
+    text-align: center;
+      font-weight: bold;
+  }
+    </style>
+
+    </html>
+    </div>
+</body>
+{% endblock body %}

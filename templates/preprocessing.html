@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link href="{{ url_for('static',filename = 'css/bootstrap.min.css')  }}" rel="stylesheet">
+
+    <link href="{{ url_for('static',filename = 'css/all.css')  }}" rel="stylesheet">
+
+    <title>ML Trainer</title>
+</head>
+<body style="background-color: #fff;">
+
+    <!-- navbar -->
+    <nav style="width: 100%;" class="navbar navbar-dark bg-dark">
+        <a class="  navbar-brand" href="#" style="margin-left: 25px;">
+            Data preprocessing for ML...
+        </a>
+    </nav>
+
+    <div class="container">
+    
+        <div class="jum" style="background-color: rgba(0, 0, 0, 0.5);">
+    <br>
+            <h3 class="display-10" style="color: #fff;">Provide Details Below...</h3>
+            <br>
+            <div style=" margin-left: 10px; margin-right: 10px;">
+                <h5 style="color: seashell;">Data preprocessing is a process of preparing the raw data and making it suitable for a
+                    machine learning model. It is the
+                    first and crucial step while creating a machine learning model. When creating a machine learning project, it is not
+                    always a case that we come across the clean and formatted data.</h5>
+            </div>
+            
+            <br><br>
+    
+   
+            <form method="POST" action="/preprocessing/dataadd" enctype="multipart/form-data">
+                <div class="input-group">
+                    <input type="file" class="form-control" name="my_dataset" accept=".csv,.xlsx">
+    
+                </div>
+                <br>
+                <button type="submit" class="btn btn-success">Add</button>  
+            </form>
+
+
+<br>
+            <button onclick="myfunction()" class="btn btn-outline-dark">Explore After <b>Adding</b> The Dataset</button>
+            <br>
+            
+            <div id="show_content" style="visibility: hidden; display: none; height: 0px;" >
+                
+                <br>
+                
+                <form method="POST" action="/preprocessing/preprocessing" >
+                    <h2>Choose the column name for standard scaling from the below provided options</h2>
+                    {% for i in col %}
+                    
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" value="{{i}}" name="features" type="checkbox">  {{ i }}
+                    </div>
+                    
+                    
+                    {% endfor %}
+                    
+                    <br>
+                    <h2>Choose the column for Label encoding</h2>
+                    {% for i in col %}
+                    
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" value="{{i}}" name="labelencode" type="checkbox">  {{ i }}
+                    </div>
+                    
+                    
+                    {% endfor %}
+                    
+                    <br>
+                    <button onclick="$('#loading').show();" type="submit" class="btn btn-outline-dark">Start Preprocessing &#8987; </button>
+                    
+                    <div id="loading"  style="display:none;"><center><img class="img img-fluid" style="height:auto;width: auto;" src="{{ url_for('static' , filename = 'image/loading.gif') }}" alt="" />
+                    </center></div>
+                </form>
+            </div>
+
+
+
+
+            <br>
+            <div id="loading" style="display:none;">
+                <center><img class="img img-fluid" style="height:auto;width: auto;"
+                        src="{{ url_for('static' , filename = 'image/Lding.gif') }}" alt="" /></center>
+            </div>
+    
+    
+        </div>
+    </div>
+
+    <!-- footer -->
+    <!-- <div class="fixed-bottom ">
+        <div class="bg-dark " style="min-height: 40px;">
+    
+            <marquee style="color:#fff; margin-top: 7px;">
+                <h9>Copyright@ </h9>
+            </marquee>
+        </div>
+    </div> -->
+    <!-- change later-->
+    <script src="{{ url_for('static',filename = 'js/bootstrap.bundle.min.js')  }}"></script>
+    
+
+
+
+    <script>
+        function myfunction() {
+            var x = document.getElementById("show_content");
+            
+            
+            x.style.visibility = "visible";
+            x.style.display = "block";
+            x.style.height = "auto";
+            
+            
+        }
+    </script>
+</body>
+    
+</html>

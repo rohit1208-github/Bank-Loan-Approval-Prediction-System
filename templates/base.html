@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A-LAP</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='cssfile/style.css') }}">
+    <script src="{{url_for('static',filename='jsfile/indexf.js')}}"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.2/papaparse.js"></script>
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link href="{{ url_for('static',filename = 'css/bootstrap.min.css')  }}" rel="stylesheet">
+
+    <link href="{{ url_for('static',filename = 'css/all.css')  }}" rel="stylesheet">
+
+   </head>
+
+<body>
+        
+    <!-- Header begins -->
+    <div class="main">
+    <div class="topnav" id="myTopnav">
+        <!-- <div class="navbar-header">
+            <a class="navbar-brand " style="font-size: xx-large;" href="#">Finance Planner</a>
+        </div> -->
+        <a href="/createe">
+            <h2 style="color: white;">A-LAP</h2>
+        </a>
+        <div class="menu">
+          
+          
+<!--        <a href="/create" class="btn" >Load Data</a>
+            <a href="/projects" class="btn" >Projects</a>-->
+        <a href="javascript:void(0);" class="icon" onclick="header()">
+            <i class="fa fa-bars"></i>
+        </a>
+        
+    </div>
+    </div>
+    <!--header ends-->
+    {% block body %}
+    
+    {% endblock body %}
+    
+
+</section>
+<!-- End of goal section  -->
+<br><br>
+</div>
+</body>
+<!-- Footer section  -->
+<footer class="mainfooter" role="contentinfo" style="background-color: #2691d9;">  
+    <div class="co" style="background-color: #2691d9 ; margin-left: 91.200px;margin-right: 91.200px;">  
+      <div class="row">  
+          <li><a href="/guide" style="font-size: 18px; text-decoration: none;">User Guide</a></li>
+      </div>  
+      <div class="row">  
+      <div class="col-md-12 copy">  
+      <p class="text-center"> © Prathyegam-2022.</p>
+      <a href="#">Terms And Conditions</a>  
+      </div>  
+      </div>  
+    </div>    
+  </footer>
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+<style>
+  html{
+    font-family: "Poppins", sans-serif;
+  }
+footer {  
+     background-color: #2691d9;  
+      position: sticky;
+      box-sizing: border-box;
+      display: block;
+      top: 100%;
+    }  
+    footer a {  
+      color: white;  
+      font-size: 14px;  
+      transition-duration: 0.2s;  
+    }  
+    footer a:hover {  
+      color: RED;  
+      text-decoration: none;  
+    }  
+    .copy {  
+      font-size: 12px;  
+      padding: 10px;  
+      border-top: 1px solid white;  
+    }
+    .mainfooter{
+      background-color: #2691d9;
+    }   
+    p{
+      color: white;
+    }
+    body {
+    margin: 0;
+    font-family: "Poppins",sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+    min-height: 100vh;
+}
+.topnav h2{
+  font-size: 35px;
+  font-family: sans-serif;
+  padding-top: 3px;
+}
+.co{
+      max-width: 1350px;
+      padding-top: 30px;
+      padding-bottom: 30px;
+      align-items: center;
+      border-radius: 20px;
+    }
+
+
+</style>
+</html>

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %} Home{% endblock title %}
+{% block body %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>result</title>
+
+</head>
+<body>
+    <div class="container-fluid">
+        <h1 align="center">Eligible Amount</h1>
+        <h3 align="center">The Suggested Amount For You:</h3>
+        <div>
+            <h4 align="center">
+                {{ index }}
+            </h4>
+        </div>   
+    </div>        
+</body>
+<style>
+    *{
+        font-family:'Nunito', sans-serif;
+    }
+    body{
+        background-image: url("/static/img/3.jpg");
+        height: 500px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+</style>
+</html>
+
+{% endblock body %}
